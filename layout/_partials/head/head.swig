@@ -58,4 +58,8 @@
   <script src="{{ pace_js_uri }}"></script>
 {%- endif %}
 
+{%- if theme.google_ads.enable %}
+    <script data-ad-client="ca-pub-5450562646792096" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{%- endif %}
+
 {{ next_config() }}

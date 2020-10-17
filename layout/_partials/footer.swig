@@ -1,15 +1,3 @@
-{%- if theme.footer.beian.enable %}
-  <div class="beian">
-    {{- next_url('https://beian.miit.gov.cn', theme.footer.beian.icp + ' ') }}
-    {%- if theme.footer.beian.gongan_icon_url %}
-      <img src="{{ url_for(theme.footer.beian.gongan_icon_url) }}" style="display: inline-block;">
-    {%- endif %}
-    {%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %}
-      {{- next_url('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + ' ') }}
-    {%- endif %}
-  </div>
-{%- endif %}
-
 <div class="copyright">
   {% set copyright_year = date(null, 'YYYY') %}
   &copy; {% if theme.footer.since and theme.footer.since != copyright_year %}{{ theme.footer.since }} – {% endif %}
@@ -58,4 +46,18 @@
   </div>
 {%- endif %}
 
+{%- if theme.footer.beian.enable %}
+  <div class="beian">
+    {%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %}
+        {%- if theme.footer.beian.gongan_icon_url %}
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode={{theme.footer.beian.gongan_id}}" style="display:inline-block;text-decoration:none;height:25px;line-height:25px;"><img src="{{ url_for(theme.footer.beian.gongan_icon_url) }}" style="float:left;"> {{ theme.footer.beian.gongan_num }}<p></p></a>
+        {%- endif %}
+    {%- endif %}
+    <span class="post-meta-divider">|</span>
+        <a target="_blank" href="http://beian.miit.gov.cn" style="display:inline-block;text-decoration:none;height:25px;line-height:25px;">{{ theme.footer.beian.icp }}<p></p></a>
+  </div>
+{%- endif %}
+<div class="upyun">
+      <a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="display: block; height:30px; line-height:30px;">本网站由<img src="{{ url_for(theme.footer.beian.upyun_icon_url) }}" style="width: 75px; height:30px; display: inline-block; vertical-align:middle ">提供CDN加速/云存储服务<p></p></a>
+</div>
 {{- next_inject('footer') }}

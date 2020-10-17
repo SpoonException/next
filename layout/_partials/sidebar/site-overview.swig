@@ -97,7 +97,7 @@
 
 {%- if theme.creative_commons.license and theme.creative_commons.sidebar %}
   <div class="cc-license motion-element" itemprop="license">
-  {%- set ccImage = '<img src="' + url_for(theme.images + '/cc-' + theme.creative_commons.license + '.svg') + '" alt="Creative Commons">' %}
+  {%- set ccImage = '<img src="https://image.anspoon.cn' + url_for('/logo/cc-' + theme.creative_commons.license + '.svg') + '" alt="Creative Commons">' %}
     {{ next_url(ccURL, ccImage, {class: 'cc-opacity'}) }}
   </div>
 {%- endif %}
